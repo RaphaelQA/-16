@@ -1,12 +1,9 @@
 from flask import jsonify, Flask, request, abort
-from flask_sqlalchemy import SQLAlchemy
-
 from config import Config
-from migrate import data_to_db
+from migrate import db, data_to_db
 from model import User, Order, Offer
-
 app = Flask(__name__)
-db = SQLAlchemy()
+
 
 
 @app.route('/users/', methods=['GET', 'POST'])
@@ -147,4 +144,4 @@ if __name__ == '__main__':
         db.create_all()
         data_to_db()
 
-    app.run(port=5000, debug=True)
+    app.run(port=5000)

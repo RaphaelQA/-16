@@ -1,7 +1,7 @@
-from init_db import db
+from flask_sqlalchemy import SQLAlchemy
 from model import User, Order, Offer
 import json
-
+db = SQLAlchemy()
 
 def insert_data_user(input_data):
     for row in input_data:
