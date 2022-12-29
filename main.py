@@ -1,9 +1,10 @@
 from flask import jsonify, Flask, request, abort
+from sqlalchemy import create_engine
+from init_db import db
 from config import Config
-from migrate import db, data_to_db
+from migrate import data_to_db
 from model import User, Order, Offer
 app = Flask(__name__)
-
 
 
 @app.route('/users/', methods=['GET', 'POST'])
